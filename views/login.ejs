@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Login</title>
+        <style>
+            body{
+                font-family: arial;
+                margin: 0;
+            }
+            nav{
+                background: #ff5353;
+                padding: 20px 10px;
+            }
+            nav ul{
+                max-width: 960px;
+                margin: 0 auto;
+                padding: 0;
+            }
+            nav li{
+                list-style-type: none;
+                display: inline-block;
+                margin: 0 10px 0 0;
+            }
+            nav a{
+                color: #fff;
+                font-size: 18px;
+                background: rgba(255,255,255,0.2);
+                text-decoration: none;
+                padding: 10px;
+                display: block;
+            }
+            main, header{
+                max-width: 960px;
+                margin: 30px auto;
+                padding: 0 10px;
+                color: #333;
+            }
+            .google-btn{
+                color: #fff;
+                text-decoration: none;
+                font-size: 18px;
+                padding: 10px;
+                background: #ff5353;
+            }
+            input[type=text] {
+              width: 40%;
+              padding: 12px 20px;
+              margin: 8px 0;
+              box-sizing: border-box;
+            }
+            input[type=submit]{
+              background-color: #4CAF50;
+              border: none;
+              color: white;
+              padding: 12px 32px;
+              text-decoration: none;
+              margin: 4px 2px;
+              cursor: pointer;
+            }
+            .form{
+                padding-left: 50px ;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <% if (user) { %>
+                <li><a href="/auth/logout">Log out</a></li>
+                <% } else { %>
+                <li><a href="/auth/login">Login</a></li>
+                <% } %>
+                <li><a href="/">Homepage</a></li>
+            </ul>
+        </nav>
+        <header>
+            <h1>Login using...</h1>
+        </header>
+        <form action="/auth/local/login" method="POST" class="form">
+           <b>Username:</b> <input type="text" name="username"><br><br>
+            <b>Password:</b> <input type="text" name="password"><br><br>
+            <input type="submit" value="Sign-in"><br><br>
+            <a href="/auth/sign-up">New Register ?</a>
+        </form>
+        <main>
+            <a class="google-btn" href="/auth/google">Google+</a>
+        </main>
+    </body>
+</html>
